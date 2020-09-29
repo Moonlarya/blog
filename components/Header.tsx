@@ -5,7 +5,7 @@ import Link from "next/link";
 const HeaderContainer = styled.div`
   width: 100%;
   padding: 30px 0;
-  background-color: ${(props) => props.theme.colors.lightBlue};
+  background-color: ${(props) => props.theme.colors.gunmetal};
 `;
 
 const Navigation = styled.div`
@@ -17,7 +17,7 @@ const Navigation = styled.div`
 
 const StyledLink = styled.a`
   text-decoration: none;
-  color: ${(props) => props.theme.colors.onyx};
+  color: ${(props) => props.theme.colors.lavender};
   font-size: ${(props) => props.theme.fontSizes.small};
   font-weight: ${(props) => props.theme.fontWeigth.middle};
   font-family: ${(props) => props.theme.font};

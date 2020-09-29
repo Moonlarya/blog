@@ -7,10 +7,10 @@ import { useStore } from "../redux/store";
 
 const theme = {
   colors: {
-    powderWhite: "#FFFDF9",
-    persianGreen: "#06B49A",
-    lightBlue: "#AFDBD2",
-    onyx: "#36313D",
+    lavender: "#DADFF7",
+    gunmetal: "#232C33",
+    grey: "#B5B2C2",
+    steelTeal: "#5A7D7C",
   },
   fontSizes: {
     small: "1em",
