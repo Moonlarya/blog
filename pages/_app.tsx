@@ -17,7 +17,7 @@ const theme = {
     medium: "2em",
     large: "3em",
   },
-  fontWeigth: {
+  fontWeigths: {
     ligth: 300,
     medium: 500,
     bold: 700,

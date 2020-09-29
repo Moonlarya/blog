@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 
 const Post: FC<{}> = () => (
   <>
