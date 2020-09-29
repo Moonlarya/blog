@@ -1,28 +1,46 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { Formik, Form, ErrorMessage } from "formik";
 
 import Header from "../../components/Header";
+import Button from "../../components/Button";
 
-const MainHeading = styled.h1`
-  color: ${(props) => props.theme.colors.gunmetal};
-  font-size: ${(props) => props.theme.fontSizes.medium};
-  font-weight: ${(props) => props.theme.fontWeigths.bold};
-  font-family: ${(props) => props.theme.font};
-  margin: 50px auto;
-  text-align: center;
-`;
+const NewPost: FC<{}> = () => {
+  const onSubmit = (values) => {
+    return values;
+  };
 
-const Wrapper = styled.div`
-  width: 70%;
-  margin: 0 auto;
-`;
-
-const NewPost: FC<{}> = () => (
-  <>
-    <Header />
-    <MainHeading>New Post</MainHeading>
-    <Wrapper />
-  </>
-);
+  return (
+    <>
+      <Header />
+      <MainHeading>New Post</MainHeading>
+      <Formik initialValues={{ title: "", body: "" }} onSubmit={onSubmit}>
+        {({ handleSubmit, handleChange, handleBlur, values }) => (
+          <Form onSubmit={handleSubmit}>
+            <Wrapper>
+              <Input
+                type="text"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.title}
+                name="title"
+              />
+              <ErrorMessage name="text" component="div" />
+              <Textarea
+                maxLength={5000}
+                name="body"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.body}
+              />
+              <ErrorMessage name="body" component="div" />
+              <Button type="submit">Post!</Button>
+            </Wrapper>
+          </Form>
+        )}
+      </Formik>
+    </>
+  );
+};
 
 export default NewPost;

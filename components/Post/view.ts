@@ -4,6 +4,7 @@ export const PostWrapper = styled.div`
   border: 1px solid ${(props) => props.theme.colors.grey};
   padding: 20px;
   border-radius: 10px;
+  background: ${(props) => `${props.theme.colors.lavender}80`};
 `;
 
 export const PostHeading = styled.h3`
@@ -30,4 +31,9 @@ export const StyledLink = styled.a`
   font-weight: ${(props) => props.theme.fontWeigths.medium};
   font-family: ${(props) => props.theme.font};
   margin-top: 10px;
+  transition: 0.3s all ease-in;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.steelTeal};
+  }
 `;

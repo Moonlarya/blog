@@ -19,4 +19,9 @@ export const StyledLink = styled.a`
   font-size: ${(props) => props.theme.fontSizes.small};
   font-weight: ${(props) => props.theme.fontWeigths.medium};
   font-family: ${(props) => props.theme.font};
+  transition: 0.3s all ease-in;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.grey};
+  }
 `;
