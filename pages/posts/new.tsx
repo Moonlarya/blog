@@ -1,12 +1,21 @@
 import React, { FC } from "react";
 import { Formik, Form, ErrorMessage } from "formik";
+import axios from "axios";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { MainHeading, Wrapper, Input, Textarea } from "../../components/views";
 
 const NewPost: FC<IPost> = () => {
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
+    await axios({
+      method: "post",
+      url: "https://simple-blog-api.crew.red/posts",
+      data: {
+        title: values.title,
+        body: values.body,
+      },
+    });
     return values;
   };
 

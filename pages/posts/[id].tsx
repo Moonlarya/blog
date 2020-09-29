@@ -1,40 +1,36 @@
 import React, { FC } from "react";
-import { useRouter } from "next/router";
 import axios from "axios";
+import { GetServerSideProps } from "next";
 
 import Header from "../../components/Header";
 import { MainHeading, Wrapper, Content } from "../../components/views";
 
-const Post: FC<IPost> = () => {
-  const router = useRouter();
-  const id = router.asPath.replace("/posts/", "");
-  const fetchData = async (id) => {
-    return axios(`https://simple-blog-api.crew.red/posts/${id}`);
-  };
-  fetchData(id);
+interface IPostProps {
+  data: IPost;
+}
 
+const Post: FC<IPostProps> = ({ data: { title, body } }) => {
   return (
     <>
       <Header />
       <Wrapper>
-        <MainHeading>Title</MainHeading>
-        <Content>
-          Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum orem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-          ipsumLorem ipsum
-        </Content>
+        <MainHeading>{title}</MainHeading>
+        <Content>{body}</Content>
       </Wrapper>
     </>
   );
+};
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.query;
+  const data = await axios(`https://simple-blog-api.crew.red/posts/${id}`).then(
+    (response) => response.data
+  );
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Post;
