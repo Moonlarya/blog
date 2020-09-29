@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import GlobalStyles from "../style";
+
+import Header from "../../components/Header";
 
 const NewPost: FC<{}> = () => (
   <>
-    <GlobalStyles />
-    <p>NewPost</p>
+    <Header />
+    <h1>New Post</h1>
   </>
 );
 

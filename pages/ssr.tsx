@@ -1,5 +1,5 @@
 // import Page from "../components/page";
-import { initializeStore } from "./redux/store";
+import { initializeStore } from "../redux/store";
 
 export default function SSR() {
   return "page"; // <Page />;

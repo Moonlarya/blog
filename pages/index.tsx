@@ -3,7 +3,8 @@ import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 
 // import styled from "styled-components";
-import GlobalStyles from "./style";
+
+import Header from "../components/Header";
 
 const Home: FC<{}> = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Home: FC<{}> = () => {
   });
   return (
     <>
-      <GlobalStyles />
+      <Header />
       <h1>Latest Posts</h1>
     </>
   );

@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
+import blogReducer from "./blogReducer";
 
 let store;
 
@@ -13,36 +14,12 @@ const initialState = {
   count: 0,
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "TICK":
-      return {
-        ...state,
-        lastUpdate: action.lastUpdate,
-        light: !!action.light,
-      };
-    case "INCREMENT":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    case "DECREMENT":
-      return {
-        ...state,
-        count: state.count - 1,
-      };
-    case "RESET":
-      return {
-        ...state,
-        count: initialState.count,
-      };
-    default:
-      return state;
-  }
-};
-
 function initStore(preloadedState = initialState) {
-  return createStore(reducer, preloadedState, applyMiddleware(thunk, logger));
+  return createStore(
+    blogReducer,
+    preloadedState,
+    applyMiddleware(thunk, logger)
+  );
 }
 
 export const initializeStore = (preloadedState) => {
