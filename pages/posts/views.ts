@@ -16,6 +16,26 @@ export const Content = styled.p`
   font-family: ${(props) => props.theme.font};
   line-height: 1.75em;
   text-align: center;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 15px;
+    height: 100px;
+    background-color: ${(props) => props.theme.colors.lavender};
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: -20px;
+    width: 120px;
+    height: 15px;
+    background-color: ${(props) => props.theme.colors.lavender};
+  }
 `;
 
 export const Wrapper = styled.div`

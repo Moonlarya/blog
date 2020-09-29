@@ -12,7 +12,14 @@ const Post: FC<{}> = () => (
         Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
         ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
         ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum orem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+        ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
       </Content>
     </Wrapper>
   </>
