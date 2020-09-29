@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import styled from "styled-components";
 import { Formik, Form, ErrorMessage } from "formik";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import { MainHeading, Wrapper, Input, Textarea } from "./views";
 
 const NewPost: FC<{}> = () => {
   const onSubmit = (values) => {
