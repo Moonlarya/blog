@@ -14,6 +14,7 @@ export const Content = styled.p`
   font-size: ${(props) => props.theme.fontSizes.small};
   font-weight: ${(props) => props.theme.fontWeigths.light};
   font-family: ${(props) => props.theme.font};
+  line-height: 1.75em;
   margin: 50px auto;
   text-align: center;
 `;
