@@ -11,10 +11,10 @@ import { loadPosts } from "../redux/actions/blogActions";
 import { RootState } from "../redux/reducers";
 
 const Wrapper = styled.div`
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-column-gap: 15px;
   grid-row-gap: 15px;
 `;
