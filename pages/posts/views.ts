@@ -9,6 +9,15 @@ export const MainHeading = styled.h1`
   text-align: center;
 `;
 
+export const Content = styled.p`
+  color: ${(props) => props.theme.colors.gunmetal};
+  font-size: ${(props) => props.theme.fontSizes.small};
+  font-weight: ${(props) => props.theme.fontWeigths.light};
+  font-family: ${(props) => props.theme.font};
+  margin: 50px auto;
+  text-align: center;
+`;
+
 export const Wrapper = styled.div`
   width: 70%;
   margin: 0 auto;
