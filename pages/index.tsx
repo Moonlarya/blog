@@ -11,7 +11,7 @@ import { loadPosts } from "../redux/actions/blogActions";
 
 const Wrapper = styled.div`
   width: 75%;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-column-gap: 15px;
