@@ -20,7 +20,7 @@ function initStore(preloadedState = initialState) {
   );
 }
 
-export const initializeStore = (preloadedState) => {
+export const initializeStore = (preloadedState = initialState) => {
   let _store = store ?? initStore(preloadedState);
 
   if (preloadedState && store) {

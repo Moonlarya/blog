@@ -1,5 +1,6 @@
 // import Page from "../components/page";
 import { initializeStore } from "../redux/store";
+import { loadPosts } from "../redux/actions/blogActions";
 
 export default function SSR() {
   return "page"; // <Page />;
@@ -9,14 +10,10 @@ export default function SSR() {
 // that is because the page becomes a serverless function instead of being statically
 // exported when you use `getServerSideProps` or `getInitialProps`
 export function getServerSideProps() {
-  const reduxStore = initializeStore(""); // err
+  const reduxStore = initializeStore(); // err
   const { dispatch } = reduxStore;
 
-  dispatch({
-    type: "TICK",
-    light: false,
-    lastUpdate: Date.now(),
-  });
+  dispatch(loadPosts);
 
   return { props: { initialReduxState: reduxStore.getState() } };
 }

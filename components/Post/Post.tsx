@@ -8,7 +8,11 @@ import {
   Overflow,
 } from "./view";
 
-const Post: FC<IPost> = ({ id, title, body }) => (
+interface IPostProps {
+  data: IPost;
+}
+
+const Post: FC<IPostProps> = ({ data: { id, title, body } }) => (
   <PostWrapper>
     <PostHeading>{title}</PostHeading>
     <Overflow />

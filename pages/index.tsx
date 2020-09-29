@@ -1,14 +1,13 @@
 import React, { FC } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-
+import { GetServerSideProps } from "next";
 import styled from "styled-components";
+
+import { initializeStore } from "../redux/store";
 
 import Header from "../components/Header";
 import Post from "../components/Post";
 
 import { loadPosts } from "../redux/actions/blogActions";
-import { RootState } from "../redux/reducers";
 
 const Wrapper = styled.div`
   width: 75%;
@@ -28,21 +27,35 @@ const MainHeading = styled.h1`
   text-align: center;
 `;
 
-const Home: FC<{}> = () => {
-  const posts = useSelector((state: RootState) => state.blog.posts);
-  const dispatch = useDispatch();
+interface IHomeProps {
+  posts: IPost[];
+}
 
-  dispatch(loadPosts);
-  return (
-    <>
-      <Header />
-      <MainHeading>Latest Posts</MainHeading>
-      <Wrapper>
-        {posts.map((post) => (
-          <Post id={post.id} title={post.title} body={post.body} />
-        ))}
-      </Wrapper>
-    </>
-  );
+const Home: FC<IHomeProps> = ({ posts }) => (
+  <>
+    <Header />
+    <MainHeading>Latest Posts</MainHeading>
+    <Wrapper>
+      {posts.map((post) => (
+        <Post key={post.id} data={post} />
+      ))}
+    </Wrapper>
+  </>
+);
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const store = initializeStore();
+  const { dispatch, getState } = store;
+
+  await dispatch(loadPosts);
+
+  const state = getState();
+
+  return {
+    props: {
+      posts: state.blog.posts,
+    },
+  };
 };
+
 export default Home;
