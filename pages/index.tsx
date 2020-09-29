@@ -1,11 +1,14 @@
 import React, { FC } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components";
 
 import Header from "../components/Header";
 import Post from "../components/Post";
+
+import { loadPosts } from "../redux/actions/blogActions";
+import { RootState } from "../redux/reducers";
 
 const Wrapper = styled.div`
   width: 70%;
@@ -26,21 +29,18 @@ const MainHeading = styled.h1`
 `;
 
 const Home: FC<{}> = () => {
+  const posts = useSelector((state: RootState) => state.blog.posts);
   const dispatch = useDispatch();
 
-  dispatch({
-    type: "TICK",
-    light: true,
-    lastUpdate: Date.now(),
-  });
+  dispatch(loadPosts);
   return (
     <>
       <Header />
       <MainHeading>Latest Posts</MainHeading>
       <Wrapper>
-        <Post id={1} title="Title" body="Lorem ipsum dolor sit amet" />{" "}
-        <Post id={1} title="Title" body="Lorem ipsum dolor sit amet" />{" "}
-        <Post id={1} title="Title" body="Lorem ipsum dolor sit amet" />
+        {posts.map((post) => (
+          <Post id={post.id} title={post.title} body={post.body} />
+        ))}
       </Wrapper>
     </>
   );

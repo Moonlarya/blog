@@ -22,7 +22,7 @@ export const Content = styled.p`
     content: "";
     position: absolute;
     top: -20px;
-    left: -20px;
+    left: -40px;
     width: 15px;
     height: 100px;
     background-color: ${(props) => props.theme.colors.lavender};
@@ -31,7 +31,7 @@ export const Content = styled.p`
     content: "";
     position: absolute;
     top: -35px;
-    left: -20px;
+    left: -40px;
     width: 120px;
     height: 15px;
     background-color: ${(props) => props.theme.colors.lavender};

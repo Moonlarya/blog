@@ -9,9 +9,7 @@ import rootReducer from "./reducers";
 let store;
 
 const initialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
+  blog: { posts: [] },
 };
 
 function initStore(preloadedState = initialState) {

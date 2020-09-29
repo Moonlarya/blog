@@ -3,9 +3,9 @@ import { Formik, Form, ErrorMessage } from "formik";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import { MainHeading, Wrapper, Input, Textarea } from "./views";
+import { MainHeading, Wrapper, Input, Textarea } from "../../components/views";
 
-const NewPost: FC<{}> = () => {
+const NewPost: FC<IPost> = () => {
   const onSubmit = (values) => {
     return values;
   };

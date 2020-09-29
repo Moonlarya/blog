@@ -21,6 +21,6 @@
     "moduleResolution": "node",
     "baseUrl": "pages"
   },
-  "include": ["pages", "next-env.d.ts"],
+  "include": ["pages", "next-env.d.ts", "components/views.ts"],
   "exclude": ["node_modules"]
 }
