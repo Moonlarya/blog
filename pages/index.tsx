@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const store = initializeStore();
   const { dispatch, getState } = store;
 
-  await dispatch(loadPosts);
+  await dispatch(loadPosts as any);
 
   const state = getState();
 
