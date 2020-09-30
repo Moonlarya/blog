@@ -22,13 +22,17 @@ const Post: FC<IPostProps> = ({ data: { title, body } }) => {
 };
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
-  const data = await PostService.getById(+id);
+  try {
+    const data = await PostService.getById(+id);
 
-  return {
-    props: {
-      data,
-    },
-  };
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (err) {
+    console.error();
+  }
 };
 
 export default Post;
