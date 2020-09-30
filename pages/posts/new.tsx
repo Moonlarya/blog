@@ -26,7 +26,8 @@ const NewPost: FC<IPost> = () => {
 
     if (!values.title) {
       errors.title = "Required title";
-    } else if (!values.body) {
+    }
+    if (!values.body) {
       errors.body = "Required content of the post";
     }
     return errors;
@@ -67,6 +68,7 @@ const NewPost: FC<IPost> = () => {
               <Input
                 type="text"
                 onChange={handleChange}
+                placeholder="Your post title"
                 onBlur={handleBlur}
                 value={values.title}
                 name="title"
@@ -77,6 +79,7 @@ const NewPost: FC<IPost> = () => {
               <Textarea
                 maxLength={5000}
                 name="body"
+                placeholder="Print here your great story..."
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.body}
