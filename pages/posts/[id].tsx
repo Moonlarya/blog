@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import axios from "axios";
 import { GetServerSideProps } from "next";
 
+import PostService from "../../services/PostService";
 import Header from "../../components/Header";
 import { MainHeading, Wrapper, Content } from "../../components/views";
 
@@ -22,9 +22,7 @@ const Post: FC<IPostProps> = ({ data: { title, body } }) => {
 };
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
-  const data = await axios(`https://simple-blog-api.crew.red/posts/${id}`).then(
-    (response) => response.data
-  );
+  const data = await PostService.getById(id);
 
   return {
     props: {

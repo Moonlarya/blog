@@ -1,5 +1,4 @@
-import axios from "axios";
-
+import PostService from "../../services/PostService";
 import { SET_POSTS } from "../types";
 
 export const setPosts = (posts: IPost[]) => ({
@@ -8,9 +7,7 @@ export const setPosts = (posts: IPost[]) => ({
 });
 
 export const loadPosts = async (dispatch) => {
-  const posts = await axios
-    .get("https://simple-blog-api.crew.red/posts")
-    .then((response) => response.data);
+  const posts = await PostService.getAll();
 
   dispatch(setPosts(posts));
 };
