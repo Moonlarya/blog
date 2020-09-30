@@ -4,7 +4,7 @@ const initialState = {
   posts: [],
 };
 
-const blogReducer = (state = initialState, action) => {
+const blogReducer = (state = initialState, action: IAction) => {
   switch (action.type) {
     case SET_POSTS:
       return { ...state, posts: action.payload };

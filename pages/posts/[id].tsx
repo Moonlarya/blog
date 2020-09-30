@@ -22,7 +22,7 @@ const Post: FC<IPostProps> = ({ data: { title, body } }) => {
 };
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
-  const data = await PostService.getById(id);
+  const data = await PostService.getById(+id);
 
   return {
     props: {

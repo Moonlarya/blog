@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 import { MainHeading, Wrapper, Input, Textarea } from "../../components/views";
 
 const NewPost: FC<IPost> = () => {
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: { title: string; body: string }) => {
     await PostService.create({
       title: values.title,
       body: values.body,

@@ -1,14 +1,18 @@
-// example
-
 import { useMemo } from "react";
-import { createStore, applyMiddleware } from "redux";
+import {
+  createStore,
+  applyMiddleware,
+  AnyAction,
+  CombinedState,
+  Store,
+} from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
-let store;
+let store: Store<CombinedState<IState>, AnyAction>;
 
-const initialState = {
+const initialState: IState = {
   blog: { posts: [] },
 };
 
@@ -37,7 +41,9 @@ export const initializeStore = (preloadedState = initialState) => {
   return _store;
 };
 
-export function useStore(initialState) {
+export function useStore(initialState: IState) {
   const store = useMemo(() => initializeStore(initialState), [initialState]);
   return store;
 }
+
+export type AppDispatch = typeof store.dispatch;

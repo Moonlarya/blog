@@ -1,7 +1,7 @@
 import ApiService from "./ApiService";
 
 class PostService extends ApiService {
-  async getAll() {
+  async getAll(): Promise<IPost[]> {
     const response = await this.api({ url: "/posts" }).then(
       (response) => response.data
     );
@@ -9,7 +9,7 @@ class PostService extends ApiService {
     return response;
   }
 
-  async getById(id) {
+  async getById(id: number): Promise<IPost> {
     const response = await this.api({ url: `/posts/${id}` }).then(
       (response) => response.data
     );
@@ -17,7 +17,7 @@ class PostService extends ApiService {
     return response;
   }
 
-  async create(data) {
+  async create(data: IPost) {
     const response = await this.api({
       url: "/posts/",
       method: "post",
