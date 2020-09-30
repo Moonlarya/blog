@@ -16,9 +16,9 @@ const NewPost: FC<IPost> = () => {
     const errors: FormikErrors<FormValues> = {};
 
     if (!values.title) {
-      errors.title = "Required";
+      errors.title = "Required title";
     } else if (!values.body) {
-      errors.body = "Required";
+      errors.body = "Required content of the post";
     }
     return errors;
   };
@@ -55,7 +55,7 @@ const NewPost: FC<IPost> = () => {
                 value={values.title}
                 name="title"
               />
-              <ErrorMessage name="text" component="div" />
+              <ErrorMessage name="title" component="div" />
               <Textarea
                 maxLength={5000}
                 name="body"
