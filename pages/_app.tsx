@@ -11,6 +11,7 @@ const theme = {
     gunmetal: "#232C33",
     grey: "#B5B2C2",
     steelTeal: "#5A7D7C",
+    error: "#c9023b",
   },
   fontSizes: {
     small: "1em",

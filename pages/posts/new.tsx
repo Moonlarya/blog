@@ -1,10 +1,19 @@
 import React, { FC } from "react";
-import { Formik, Form, ErrorMessage, FormikErrors } from "formik";
+import { Formik, Form, FormikErrors } from "formik";
+import styled from "styled-components";
 import PostService from "../../services/PostService";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { MainHeading, Wrapper, Input, Textarea } from "../../components/views";
+
+const ErrorMessage = styled.div`
+  color: ${(props) => props.theme.colors.error};
+  font-size: ${(props) => props.theme.fontSizes.small};
+  font-weight: ${(props) => props.theme.fontWeigths.medium};
+  font-family: ${(props) => props.theme.font};
+  margin-bottom: 15px;
+`;
 
 interface FormValues {
   title: string;
@@ -45,7 +54,14 @@ const NewPost: FC<IPost> = () => {
         onSubmit={onSubmit}
         validate={validate}
       >
-        {({ handleSubmit, handleChange, handleBlur, values }) => (
+        {({
+          handleSubmit,
+          handleChange,
+          handleBlur,
+          values,
+          touched,
+          errors,
+        }) => (
           <Form onSubmit={handleSubmit}>
             <Wrapper>
               <Input
@@ -55,7 +71,9 @@ const NewPost: FC<IPost> = () => {
                 value={values.title}
                 name="title"
               />
-              <ErrorMessage name="title" component="div" />
+              {touched.title && errors.title && (
+                <ErrorMessage>{errors.title}</ErrorMessage>
+              )}
               <Textarea
                 maxLength={5000}
                 name="body"
@@ -63,7 +81,9 @@ const NewPost: FC<IPost> = () => {
                 onBlur={handleBlur}
                 value={values.body}
               />
-              <ErrorMessage name="body" component="div" />
+              {touched.body && errors.body && (
+                <ErrorMessage>{errors.body}</ErrorMessage>
+              )}
               <Button type="submit">Post!</Button>
             </Wrapper>
           </Form>
